@@ -14,7 +14,7 @@ Use the public Render402 API at `https://api.render402.xyz`. It has one paid res
 3. Calculate an estimate from the live price schedule, then obtain the authoritative exact amount from the unpaid 402 challenge. Do not pay more than the user's stated budget.
 4. Read the linked Terms and Content Policy before submitting content when they have not already been accepted in the surrounding workflow.
 
-For inputs with images, frames, or audio, complete the wallet-authenticated upload flow from the live OpenAPI document first. Poll each returned upload status URL until the canonical asset ID is ready. Upload preparation is free; do not authorize generation payment for unavailable media.
+For inputs with images, frames, or audio, read and follow [the media upload workflow](references/upload.md) before building the generation request. Do not pass local paths, public URLs, upload IDs, or transfer URLs to `/v1/generate`; it accepts only ready canonical asset UUIDs. Upload preparation is free, and its wallet signature authenticates identity rather than authorizing USDC payment.
 
 ## Request and pay
 
@@ -35,4 +35,4 @@ HTTP 202 means the order was accepted, not that the video is finished. Follow th
 - If the status ticket expires, use the documented wallet-authenticated recovery path.
 - Do not claim that a generation succeeded until the status response is terminal and includes the output URL.
 
-Use the live OpenAPI document for upload and response schemas. Read [the API reference](references/api.md) for the stable public routes and mode shapes.
+Read [the API reference](references/api.md) for the stable public routes and mode shapes. Read [the media upload workflow](references/upload.md) whenever the request uses reference images, first/last frames, or lip-sync media.
