@@ -23,6 +23,8 @@ Mode-specific required fields:
 
 Common fields include `model_id`, `duration`, `resolution`, `aspect_ratio`, and `seed`, subject to the live capability matrix. Do not manufacture combinations by taking a Cartesian product of independent-looking values.
 
+Local files and ordinary URLs are not generation inputs. Convert every required image or audio file into a ready asset UUID by following [the media upload workflow](upload.md).
+
 ## x402 v2 exchange
 
 An unpaid valid generation request returns HTTP 402 and a base64-encoded `PAYMENT-REQUIRED` response header. A paid retry supplies `PAYMENT-SIGNATURE`. A successful settlement response may include `PAYMENT-RESPONSE`.
