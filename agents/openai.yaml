@@ -1,0 +1,4 @@
+interface:
+  display_name: "Render402 Video Generation"
+  short_description: "Generate AI video with Base USDC x402 payments"
+  default_prompt: "Use $render402 to generate a video from my prompt with an x402-compatible wallet."
